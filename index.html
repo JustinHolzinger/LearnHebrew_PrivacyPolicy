@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutzerklärung | LearnHebrew App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --primary-dark: #0d3d4d;
+            --primary-light: #57c5b6;
+            --accent: #159895;
+            --bg-cream: #faf8f5;
+            --bg-section: #ffffff;
+            --text-dark: #2c3e50;
+            --text-muted: #5a6c7d;
+            --border-light: #e8e4df;
+            --shadow: rgba(26, 95, 122, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-weight: 400;
+            min-height: 100vh;
+        }
+
+        /* Decorative Hebrew-inspired pattern */
+        .pattern-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .pattern-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 L55 30 L30 55 L5 30 Z' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 60px 60px;
+            animation: patternFloat 20s linear infinite;
+        }
+
+        @keyframes patternFloat {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-60px) translateX(-60px); }
+        }
+
+        .pattern-overlay::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to top, var(--bg-cream), transparent);
+        }
+
+        /* Header */
+        header {
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--bg-cream);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 32px var(--shadow);
+        }
+
+        .logo-text {
+            font-family: 'Frank Ruhl Libre', Georgia, serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-family: 'Frank Ruhl Libre', Georgia, serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            font-weight: 300;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .lang-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .lang-btn.active {
+            background: white;
+            color: var(--primary-dark);
+            border-color: white;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-card {
+            background: var(--bg-section);
+            border-radius: 24px;
+            box-shadow: 0 20px 60px var(--shadow), 0 1px 3px rgba(0,0,0,0.03);
+            padding: clamp(2rem, 5vw, 4rem);
+            margin-top: -1rem;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        section:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        h2 {
+            font-family: 'Frank Ruhl Libre', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 1.3em;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Lists */
+        ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-muted);
+        }
+
+        li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 0.6rem;
+            top: 0.5em;
+        }
+
+        li strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(87, 197, 182, 0.08), rgba(21, 152, 149, 0.05));
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: var(--text-dark);
+        }
+
+        /* Contact Section */
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .contact-card h2 {
+            color: white;
+            justify-content: center;
+        }
+
+        .contact-card h2::before {
+            background: rgba(255,255,255,0.5);
+        }
+
+        .contact-card p {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .contact-card a {
+            color: var(--primary-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            color: inherit;
+        }
+
+        /* Language switching */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header {
+                padding: 2rem 1rem 1.5rem;
+            }
+
+            .content-card {
+                border-radius: 20px;
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .logo-text {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Smooth transitions for language switch */
+        .lang-content {
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-overlay"></div>
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon">🔤</div>
+            <span class="logo-text">LearnHebrew</span>
+        </div>
+        <h1 class="lang-title-de">Datenschutzerklärung</h1>
+        <h1 class="lang-title-en" style="display:none;">Privacy Policy</h1>
+        <p class="subtitle lang-sub-de">Ihre Privatsphäre ist uns wichtig</p>
+        <p class="subtitle lang-sub-en" style="display:none;">Your privacy is important to us</p>
+
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="de">Deutsch</button>
+            <button class="lang-btn" data-lang="en">English</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="content-card">
+            <!-- German Content -->
+            <div class="lang-content active" id="content-de">
+                <span class="last-updated">Letzte Aktualisierung: 30. Dezember 2025</span>
+
+                <section>
+                    <h2>1. Einleitung</h2>
+                    <p>Diese Datenschutzerklärung beschreibt, wie die LearnHebrew App ("die App") mit Ihren Daten umgeht. Der Schutz Ihrer Privatsphäre ist uns wichtig.</p>
+                </section>
+
+                <section>
+                    <h2>2. Verantwortlicher</h2>
+                    <p><strong>Justin Holzinger</strong><br>
+                    E-Mail: [Ihre E-Mail-Adresse]</p>
+                </section>
+
+                <section>
+                    <h2>3. Datenverarbeitung</h2>
+                    
+                    <h3>3.1 Lokal gespeicherte Daten</h3>
+                    <p>Die App speichert folgende Daten ausschließlich lokal auf Ihrem Gerät:</p>
+                    <ul>
+                        <li><strong>Vokabeldaten:</strong> Hebräische Wörter mit Übersetzungen, Transliterationen und Nikud-Zeichen</li>
+                        <li><strong>Textdaten:</strong> Hebräische Texte mit Übersetzungen</li>
+                        <li><strong>Lernfortschritt:</strong> Wiederholungsintervalle, Schwierigkeitsfaktoren, Erfolgsquoten und Statistiken</li>
+                        <li><strong>Benutzereinstellungen:</strong> App-Präferenzen und Konfigurationen</li>
+                        <li><strong>Benutzerdefinierte Inhalte:</strong> Von Ihnen hinzugefügte Wörter und Texte</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p>Alle diese Daten werden in einer lokalen SQLite-Datenbank auf Ihrem Gerät gespeichert und verlassen Ihr Gerät nicht.</p>
+                    </div>
+
+                    <h3>3.2 Berechtigungen</h3>
+                    <p>Die App benötigt folgende Berechtigungen:</p>
+                    <ul>
+                        <li><strong>Speicher-Zugriff:</strong> Wird ausschließlich für Import/Export-Funktionen verwendet und ermöglicht das Sichern Ihrer Lerndaten</li>
+                    </ul>
+
+                    <h3>3.3 Text-to-Speech (TTS)</h3>
+                    <p>Die App nutzt die auf Ihrem Gerät installierte Text-to-Speech-Engine zur Aussprache hebräischer Wörter. Diese Funktion verwendet die bereits auf Ihrem Gerät verfügbare TTS-Engine, sendet keine Daten an externe Server und funktioniert vollständig offline.</p>
+                </section>
+
+                <section>
+                    <h2>4. Keine Datenübertragung</h2>
+                    <div class="highlight-box">
+                        <p>Die App benötigt keine Internetverbindung, sendet keine Daten an externe Server, sammelt keine Analytics oder Tracking-Daten, enthält keine Werbung, verwendet keine Drittanbieter-Dienste und teilt keine Daten mit Dritten.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>5. Datensicherheit</h2>
+                    <p>Ihre Daten sind durch folgende Maßnahmen geschützt:</p>
+                    <ul>
+                        <li>Lokale Speicherung auf Ihrem Gerät</li>
+                        <li>Zugriff nur durch die App selbst</li>
+                        <li>Nutzung der Standard-Android-Sicherheitsmechanismen</li>
+                        <li>Automatische Verschlüsselung durch Android-Systemfunktionen (wenn vom Gerät unterstützt)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>6. Datenlöschung</h2>
+                    <p>Sie haben jederzeit volle Kontrolle über Ihre Daten:</p>
+                    <ul>
+                        <li><strong>Komplette Löschung:</strong> Deinstallieren Sie die App – alle Daten werden automatisch entfernt</li>
+                        <li><strong>Lernfortschritt zurücksetzen:</strong> Nutzen Sie die entsprechende Funktion in den App-Einstellungen</li>
+                        <li><strong>Datenbank zurücksetzen:</strong> Setzen Sie die komplette Datenbank über die Einstellungen zurück</li>
+                        <li><strong>Einzelne Einträge löschen:</strong> Löschen Sie individuell Wörter oder Texte</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>7. Datenexport</h2>
+                    <p>Sie können Ihre Daten jederzeit exportieren. Die Export-Funktion erstellt eine ZIP-Datei mit JSON-Daten, die Ihre Wörter, Texte und Lernfortschritt enthält. Diese wird an einem von Ihnen gewählten Speicherort abgelegt und kann für Backup oder Übertragung auf ein anderes Gerät verwendet werden.</p>
+                </section>
+
+                <section>
+                    <h2>8. Kinder</h2>
+                    <p>Die App richtet sich an Nutzer jeden Alters. Da keine Daten gesammelt oder übertragen werden, bestehen keine besonderen Risiken für Kinder.</p>
+                </section>
+
+                <section>
+                    <h2>9. Änderungen der Datenschutzerklärung</h2>
+                    <p>Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren. Änderungen werden mit einem neuen "Letzte Aktualisierung"-Datum versehen, in App-Updates bereitgestellt und vor Inkrafttreten kommuniziert (falls wesentliche Änderungen).</p>
+                </section>
+
+                <section>
+                    <h2>10. Ihre Rechte (DSGVO)</h2>
+                    <p>Da alle Daten ausschließlich lokal auf Ihrem Gerät gespeichert werden und keine Datenverarbeitung durch uns erfolgt, haben Sie bereits vollständige Kontrolle über:</p>
+                    <ul>
+                        <li><strong>Auskunftsrecht:</strong> Alle Ihre Daten sind in der App einsehbar</li>
+                        <li><strong>Recht auf Berichtigung:</strong> Sie können alle Daten in der App bearbeiten</li>
+                        <li><strong>Recht auf Löschung:</strong> Sie können Daten einzeln oder komplett löschen</li>
+                        <li><strong>Recht auf Datenübertragbarkeit:</strong> Export-Funktion ermöglicht Export Ihrer Daten</li>
+                        <li><strong>Widerspruchsrecht:</strong> Sie können die App jederzeit deinstallieren</li>
+                    </ul>
+                </section>
+
+                <section class="contact-card">
+                    <h2>11. Kontakt</h2>
+                    <p>Bei Fragen zur Datenschutzerklärung oder zum Datenschutz kontaktieren Sie uns bitte:</p>
+                    <p><strong>E-Mail:</strong> <a href="mailto:[Ihre E-Mail-Adresse]">[Ihre E-Mail-Adresse]</a></p>
+                </section>
+
+                <section>
+                    <h2>12. Rechtsgrundlage</h2>
+                    <p>Die Datenverarbeitung erfolgt auf Basis von:</p>
+                    <ul>
+                        <li>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) – durch Installation und Nutzung der App</li>
+                        <li>Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) – zur Bereitstellung der App-Funktionalität</li>
+                    </ul>
+                </section>
+            </div>
+
+            <!-- English Content -->
+            <div class="lang-content" id="content-en">
+                <span class="last-updated">Last updated: December 30, 2025</span>
+
+                <section>
+                    <h2>1. Introduction</h2>
+                    <p>This Privacy Policy describes how the LearnHebrew app ("the App") handles your data. Your privacy is important to us.</p>
+                </section>
+
+                <section>
+                    <h2>2. Data Controller</h2>
+                    <p><strong>Justin Holzinger</strong><br>
+                    Email: [Your email address]</p>
+                </section>
+
+                <section>
+                    <h2>3. Data Processing</h2>
+                    
+                    <h3>3.1 Locally Stored Data</h3>
+                    <p>The App stores the following data exclusively locally on your device:</p>
+                    <ul>
+                        <li><strong>Vocabulary data:</strong> Hebrew words with translations, transliterations, and Nikud marks</li>
+                        <li><strong>Text data:</strong> Hebrew texts with translations</li>
+                        <li><strong>Learning progress:</strong> Repetition intervals, ease factors, success rates, and statistics</li>
+                        <li><strong>User settings:</strong> App preferences and configurations</li>
+                        <li><strong>User-generated content:</strong> Words and texts you have added</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <p>All this data is stored in a local SQLite database on your device and never leaves your device.</p>
+                    </div>
+
+                    <h3>3.2 Permissions</h3>
+                    <p>The App requires the following permissions:</p>
+                    <ul>
+                        <li><strong>Storage Access:</strong> Used exclusively for import/export functions, allowing you to back up your learning data</li>
+                    </ul>
+
+                    <h3>3.3 Text-to-Speech (TTS)</h3>
+                    <p>The App uses the Text-to-Speech engine installed on your device for Hebrew pronunciation. This feature uses the TTS engine already available on your device, does not send data to external servers, and works completely offline.</p>
+                </section>
+
+                <section>
+                    <h2>4. No Data Transmission</h2>
+                    <div class="highlight-box">
+                        <p>The App does not require an internet connection, does not send data to external servers, does not collect analytics or tracking data, contains no advertising, does not use third-party services, and does not share data with third parties.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>5. Data Security</h2>
+                    <p>Your data is protected by:</p>
+                    <ul>
+                        <li>Local storage on your device</li>
+                        <li>Access only by the App itself</li>
+                        <li>Use of standard Android security mechanisms</li>
+                        <li>Automatic encryption through Android system functions (when supported by the device)</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>6. Data Deletion</h2>
+                    <p>You have full control over your data at all times:</p>
+                    <ul>
+                        <li><strong>Complete deletion:</strong> Uninstall the App – all data will be automatically removed</li>
+                        <li><strong>Reset learning progress:</strong> Use the corresponding function in the App settings</li>
+                        <li><strong>Reset database:</strong> Reset the complete database via settings</li>
+                        <li><strong>Delete individual entries:</strong> Delete individual words or texts</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>7. Data Export</h2>
+                    <p>You can export your data at any time. The export function creates a ZIP file with JSON data containing your words, texts, and learning progress. It is saved to a location of your choice and can be used for backup or transfer to another device.</p>
+                </section>
+
+                <section>
+                    <h2>8. Children</h2>
+                    <p>The App is suitable for users of all ages. Since no data is collected or transmitted, there are no special risks for children.</p>
+                </section>
+
+                <section>
+                    <h2>9. Changes to Privacy Policy</h2>
+                    <p>We reserve the right to update this Privacy Policy. Changes will be marked with a new "Last updated" date, provided in app updates, and communicated before taking effect (if substantial changes).</p>
+                </section>
+
+                <section>
+                    <h2>10. Your Rights (GDPR)</h2>
+                    <p>Since all data is stored exclusively locally on your device and no data processing is performed by us, you already have complete control over:</p>
+                    <ul>
+                        <li><strong>Right to access:</strong> All your data is viewable in the App</li>
+                        <li><strong>Right to rectification:</strong> You can edit all data in the App</li>
+                        <li><strong>Right to erasure:</strong> You can delete data individually or completely</li>
+                        <li><strong>Right to data portability:</strong> Export function enables export of your data</li>
+                        <li><strong>Right to object:</strong> You can uninstall the App at any time</li>
+                    </ul>
+                </section>
+
+                <section class="contact-card">
+                    <h2>11. Contact</h2>
+                    <p>If you have questions about this Privacy Policy or data protection, please contact us:</p>
+                    <p><strong>Email:</strong> <a href="mailto:[Your email address]">[Your email address]</a></p>
+                </section>
+
+                <section>
+                    <h2>12. Legal Basis</h2>
+                    <p>Data processing is based on:</p>
+                    <ul>
+                        <li>Art. 6 para. 1 lit. a GDPR (Consent) – by installing and using the App</li>
+                        <li>Art. 6 para. 1 lit. b GDPR (Contract performance) – to provide App functionality</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Diese Datenschutzerklärung wurde für eine rein offline funktionierende Lern-App erstellt, die keine Daten sammelt oder überträgt.</p>
+        <p style="margin-top: 0.5rem;">This Privacy Policy was created for a purely offline learning app that does not collect or transmit data.</p>
+    </footer>
+
+    <script>
+        // Language Toggle Functionality
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const contentDe = document.getElementById('content-de');
+        const contentEn = document.getElementById('content-en');
+        const titleDe = document.querySelector('.lang-title-de');
+        const titleEn = document.querySelector('.lang-title-en');
+        const subDe = document.querySelector('.lang-sub-de');
+        const subEn = document.querySelector('.lang-sub-en');
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const lang = btn.dataset.lang;
+                
+                // Update button states
+                langBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Update content visibility
+                if (lang === 'de') {
+                    contentDe.classList.add('active');
+                    contentEn.classList.remove('active');
+                    titleDe.style.display = 'block';
+                    titleEn.style.display = 'none';
+                    subDe.style.display = 'block';
+                    subEn.style.display = 'none';
+                    document.documentElement.lang = 'de';
+                } else {
+                    contentDe.classList.remove('active');
+                    contentEn.classList.add('active');
+                    titleDe.style.display = 'none';
+                    titleEn.style.display = 'block';
+                    subDe.style.display = 'none';
+                    subEn.style.display = 'block';
+                    document.documentElement.lang = 'en';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
